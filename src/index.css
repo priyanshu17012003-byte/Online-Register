@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-body antialiased bg-ledger-lines bg-ledger-lines;
+  }
+
+  a {
+    @apply text-teal;
+  }
+
+  
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-focus;
+  }
+}
+
+@layer components {
+  
+  .record-tab {
+    content: '';
+  }
+  .record-tab::before {
+    content: attr(data-letter);
+    @apply absolute -top-3 left-5 w-[26px] h-[22px] bg-teal text-paper font-mono text-xs font-semibold
+      flex items-center justify-center rounded-t rounded-b-sm;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
